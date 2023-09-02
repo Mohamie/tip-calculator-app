@@ -1,19 +1,27 @@
 import { BillSummaryProps } from "../types";
+import "../css/BillSummary.scss";
+
 
 const BillSummary = (props: BillSummaryProps) => {
     const { tipPerPerson, billPerPerson } = props;
     return <>
-        <div className="bill_summary">
-            <div className="summary_line">
-                <p>Tip Amount <span>/person</span></p>
-                <p>${(tipPerPerson).toFixed(2)}</p>
+        <div className="bill-summary">
+            <div className="bill-summary__line">
+                <p className="text">Tip Amount <span><br />/ person</span></p>
+                <p className="amount">
+                    <span>$</span>{(tipPerPerson).toFixed(2)}
+                </p>
             </div>
-            <div className="summary_line">
-                <p>Total <span>/person</span></p>
-                <p>${(billPerPerson + tipPerPerson).toFixed(2)}</p>
+            <div className="bill-summary__line">
+                <p className="text">Total <span><br />/ person</span></p>
+                <p className="amount">
+                    <span>$</span>{(billPerPerson + tipPerPerson).toFixed(2)}
+                </p>
             </div>
 
-            <button>Reset</button>
+            <button className={`bill-summary__btn ${!tipPerPerson || !billPerPerson ? '--disabled': ''}`}>
+                Reset
+            </button>
         </div>
     </>
 }

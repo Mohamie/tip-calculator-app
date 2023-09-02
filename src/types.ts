@@ -23,4 +23,5 @@ export type InputProps = {
     min?: number,
     max?: number,
     onChange: (inputEvent: React.FormEvent<HTMLInputElement>) => void;
+    icon?: string; 
 }

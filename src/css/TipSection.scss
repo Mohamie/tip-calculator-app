@@ -1,0 +1,22 @@
+.tip-section{
+    .tip-section__heading{
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+   
+    .tip-section__bill_buttons{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        button{
+            color: var(--white-color);
+            background-color: var(--a);
+            
+            &.--selected{
+                color: var(--a);
+                background-color: var(--e);
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.number-input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+
+    .number-input__label{
+        margin-bottom: .5rem;
+    }
+
+    .number-input__input{
+        width: calc(100% - 3rem);
+        padding: 1rem 1.5rem;
+        font-size: var(--medium-text-size);
+        font-weight: 700;
+        text-align: right;
+        border: none;
+        border-radius: .5rem;
+        color: var(--a);
+        background-color: var(--input-background-color);
+    }
+
+    .number-input__icon{
+        position: absolute;
+        bottom: 20%;
+        left: 5%;
+    }
+}

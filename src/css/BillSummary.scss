@@ -1,0 +1,40 @@
+.bill-summary{
+    padding: 2rem;
+    border-radius: 1.5rem;
+    color: var(--white-color);
+    background-color: var(--a);
+
+    .bill-summary__line{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .text{
+            font-size: 1.6rem;
+
+            span{
+                color: var(--b);
+            }
+        }
+
+        .amount{
+            font-size: var(--large-text-size);
+            color: var(--e);
+
+            span{
+                font-size: var(--medium-text-size);
+            }
+        }
+    }
+
+    .bill-summary__btn{
+        width: 100%;
+        background-color: var(--e);
+        text-transform: uppercase;
+        color: var(--a);
+
+        &.--disabled{
+            background-color: var(--c);
+        }
+    }
+}
