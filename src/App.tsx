@@ -2,38 +2,33 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import NumberInput from './components/NumberInput'
+import TipSection from './components/TipSection'
+import BillSummary from './components/BillSummary'
+import { useTipCalculator } from './hooks/useTipCalculator'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const {billCalculations, setBill, setTip, setPeople} = useTipCalculator();
+
 
   return (
     <>
       <div className="card">
-        <p>Bill</p>
-        <input type="text"/>  
+        <NumberInput 
+          label="Bill" 
+          value={billCalculations.billAmount}
+          onChange={(event) => setBill(+event.currentTarget.value)}/>
         
-        <p>Select Tip %</p>
-        <div className="bill_section">  
-          <button>5%</button>
-          <button>10%</button>
-          <button>15%</button>
-          <button>25%</button>
-          <button>50%</button>
-        </div>
-
-        <p>Number of people</p>
-        <input type="text"/>
+        <TipSection onTipChange={setTip}/>
         
-        <div className="bill_summary">
-          <div className="summary_line">
-            <p>Tip Amount <span>/person</span></p>
-            <p>$4.27</p>
-          </div>
-          <div className="summary_line">
-            <p>Total <span>/person</span></p>
-            <p>$32.79</p>
-          </div>
-        </div>
+        <NumberInput 
+          label="Number of People" 
+          onChange={(event) => setPeople(+event.currentTarget.value)}
+          value={billCalculations.numberOfPeople}/>
+        
+        <BillSummary 
+          tipPerPerson={billCalculations.tipPerPerson}
+          billPerPerson={billCalculations.billPerPerson}/>
       </div>
     </>
   )
