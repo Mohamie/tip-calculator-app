@@ -1,5 +1,5 @@
 export type Action = {
-    type: "BILL" | "TIP" | "NUMBER_OF_PEOPLE" | "TOTAL_SUMMARY",
+    type: "BILL" | "TIP" | "NUMBER_OF_PEOPLE" | "TOTAL_SUMMARY" | "RESET",
     value: number
 }
 
@@ -14,6 +14,8 @@ export type BillCalculations = {
 export type BillSummaryProps = {
     tipPerPerson: number,
     billPerPerson: number,
+    isValid: boolean,
+    reset: Function
 }
 
 export type InputProps = {

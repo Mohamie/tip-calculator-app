@@ -11,6 +11,7 @@ const NumberInput = (props: InputProps) => {
             placeholder={props.placeholder} 
             min={props.min}
             max={props.max}
+            value={props.value || ''}
             onChange={event => props.onChange(event)}
         />
         {props.icon && <img className="number-input__icon" src={props.icon}/>}

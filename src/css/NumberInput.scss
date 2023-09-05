@@ -18,6 +18,10 @@
         border-radius: .5rem;
         color: var(--a);
         background-color: var(--input-background-color);
+
+        &:focus-visible{
+            outline: 2px solid var(--e);
+        }
     }
 
     .number-input__icon{

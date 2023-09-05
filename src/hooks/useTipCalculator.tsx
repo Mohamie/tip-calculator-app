@@ -18,7 +18,9 @@ export const useTipCalculator = () => {
     
     const setPeople = (numberOfPeople: number) => { dispatch({type: "NUMBER_OF_PEOPLE", value: numberOfPeople}) }
 
-    return {billCalculations, setBill, setTip, setPeople}
+    const reset = () => { dispatch({type: "RESET", value: 0}) } 
+
+    return {billCalculations, setBill, setTip, setPeople, reset}
 }
 
 const reducer = (state: BillCalculations, action: Action) => {
@@ -70,14 +72,18 @@ const reducer = (state: BillCalculations, action: Action) => {
                 tipPerPerson,
                 billPerPerson
             }
+
+        case "RESET": 
+            return {
+                billAmount: 0,
+                tipPercentage: 0,
+                numberOfPeople: 0,
+                tipPerPerson: 0,
+                billPerPerson: 0
+            }
             
         default: 
             return {...state};
 
     }
 }
-
-//billAmount, tipPercentage, numberOfPeople
-
-// billAmount * tipPercentage / numberOfPeople = tipPerPerson
-// billAmount / numberOfPeople = billPerPerson

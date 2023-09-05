@@ -24,7 +24,7 @@
 
   --small-text-size: 1.8rem;
   --medium-text-size: 2.4rem;
-  --large-text-size: 3rem;
+  --large-text-size: 4rem;
 
 
   font-family: 'Space Mono', monospace;
@@ -41,10 +41,20 @@ body {
   font-size: var(--small-text-size);
   color: var(--text-primary-color);
   background-color: var(--primary-bg-color);
+
+  @media(min-width: 900px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+  }
 }
 
+
 button {
-  border-radius: 8px;
+  border-radius: 1rem;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -52,13 +62,12 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: var(--white-color);
+  background-color: var(--a);
+
 }
 
-
+button:hover:not(button[disabled]){
+  color: var(--a);
+  background-color: var(--d);
+}

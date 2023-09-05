@@ -7,7 +7,7 @@ import BillSummary from './components/BillSummary'
 import { useTipCalculator } from './hooks/useTipCalculator'
 
 function App() {
-  const {billCalculations, setBill, setTip, setPeople} = useTipCalculator();
+  const {billCalculations, setBill, setTip, setPeople, reset} = useTipCalculator();
 
 
   return (
@@ -22,7 +22,9 @@ function App() {
           value={billCalculations.billAmount}
           onChange={(event) => setBill(+event.currentTarget.value)}/>
         
-        <TipSection onTipChange={setTip}/>
+        <TipSection
+          tip={billCalculations.tipPercentage} 
+          onTipChange={setTip}/>
         
         <NumberInput 
           label="Number of People" 
@@ -30,13 +32,15 @@ function App() {
           icon={personIcon}
           onChange={(event) => setPeople(+event.currentTarget.value)}
           value={billCalculations.numberOfPeople}/>
-        
       </div>
-      <div className="summary">
-        <BillSummary 
-          tipPerPerson={billCalculations.tipPerPerson}
-          billPerPerson={billCalculations.billPerPerson}/>
-      </div>
+      
+      <BillSummary 
+        tipPerPerson={billCalculations.tipPerPerson}
+        billPerPerson={billCalculations.billPerPerson}
+        isValid={Boolean(billCalculations.tipPerPerson && billCalculations.billPerPerson)}
+        reset={reset}
+      />
+
     </div>
     </>
   )
