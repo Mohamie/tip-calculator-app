@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NumberInput from "./NumberInput";
 import "../css/TipSection.scss";
 
